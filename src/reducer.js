@@ -8,19 +8,16 @@ const reducer = (state = initialState, action) => {
                 {id: counter++, text: action.payload.text, completed: action.payload.completed},
             ]
         case "CHANGE-COMPETED":
-            return {
-                // ...state,
-                // state[0] = state.find(val => val.id === action.payload.id).completed ? false : true,
-                // const someData = state.find(val => val.id === action.payload.id)
-                // someData
-                //     ? someData.completed = true
-                //     : someData.completed = false
-                // return [
-                //     ...state,
-                //     someData
-                // ]
+            const someData = state.find(val => val.id === action.payload.id)
+            someData
+                ? someData.completed = true
+                : someData.completed = false
 
-            }
+                return [
+                    ...state,
+                    someData
+                ]
+
         default:
             return state;
     }
